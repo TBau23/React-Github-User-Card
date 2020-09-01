@@ -41,7 +41,7 @@ componentDidMount() {
 render() {
   return (
     <div className="App">
-      <h1>Github Usercards React Edition!!</h1>
+      <h1 style={{color: 'white'}}>Github Usercards React Edition!!</h1>
       <div className='personal-card'>
         <img className='prof-pic' src={this.state.myself.avatar_url}/>
         <h2>{this.state.myself.name}</h2>
