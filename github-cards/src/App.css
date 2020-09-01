@@ -1,19 +1,24 @@
 .App {
   text-align: center;
+  background-color: black;
 }
 
 .personal-card{
-  width: 40%;
+  width: 65%;
   border: 2px solid black;
   background-color: aquamarine;
   display: flex;
   flex-flow: column wrap;
   margin: auto;
+  border-radius: 20px;
 }
 
 .personal-card img {
   width: 50%;
   margin: 2% auto;
+}
+
+.prof-pic {
   border-radius: 80px;
 }
 
@@ -30,6 +35,7 @@
   display: flex;
   flex-flow: column wrap;
   margin: 2% auto;
+  border-radius: 20px;
 }
 
 .follower img {
@@ -38,3 +44,12 @@
   border-radius: 80px;
 }
 
+.git-contributions img  {
+  width: 65%;
+  transition: 0.5s;
+}
+
+.git-contributions img:hover {
+  transform: scale(1.5);
+  transition: 0.5s
+}

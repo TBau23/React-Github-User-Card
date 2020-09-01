@@ -47,9 +47,12 @@ render() {
         <h2>{this.state.myself.name}</h2>
         <p>Username: {this.state.myself.login}</p>
         <p>Location: {this.state.myself.location}</p>
-        
+        <p style={{textDecoration: 'underline'}}>Github Contributions - Hover to Zoom In</p>
+        <div className="git-contributions">
+          <img src="https://ghchart.rshah.org/409ba5/TBau23" alt="TBau23's Blue Github Chart" />
+        </div>
       </div>
-      <h2>My followers: </h2>
+      <h2 style={{color: 'white'}}>My followers: </h2>
       <div className='followers-list'>
       {this.state.followers.map(follower => (
         <div className='follower' key={follower}>
