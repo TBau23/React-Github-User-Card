@@ -1,7 +1,7 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import axios from 'axios'
+import SearchBar from './SearchBar'
 
 class App extends React.Component {
   constructor(){
@@ -9,7 +9,7 @@ class App extends React.Component {
   this.state = {
     myself: [],
     followers: [],
-    error: ''
+    searchTerm: ''
   }
 }
 
@@ -18,7 +18,6 @@ componentDidMount() {
   .then(res => {
     console.log(res)
     this.setState({
-      
       myself: res.data
     })
   })
@@ -26,7 +25,7 @@ componentDidMount() {
     console.log(err)
   })
 
-  axios.get('https://api.github.com/users/TBau23/followers')
+  axios.get('https://api.github.com/users/TBau23/following')
   .then(res => {
     console.log(res)
     this.setState({
@@ -38,7 +37,18 @@ componentDidMount() {
   })
 }
 
+searchChange = (event) => {
+  this.setState({
+    searchTerm: event.target.value
+  })
+}
+
 render() {
+
+  const filteredFollowers = this.state.followers.filter(followers => {
+    return followers.login.toLowerCase().includes(this.state.searchTerm.toLowerCase())
+  })
+
   return (
     <div className="App">
       <h1 style={{color: 'white'}}>Github Usercards React Edition!!</h1>
@@ -52,9 +62,11 @@ render() {
           <img src="https://ghchart.rshah.org/409ba5/TBau23" alt="TBau23's Blue Github Chart" />
         </div>
       </div>
-      <h2 style={{color: 'white'}}>My followers: </h2>
+      <h2 style={{color: 'white', textDecoration: 'underline'}}>My followers: </h2>
+      <SearchBar searchChange={this.searchChange}/>
       <div className='followers-list'>
-      {this.state.followers.map(follower => (
+        
+      {filteredFollowers.map(follower => (
         <div className='follower' key={follower}>
           <img src={follower.avatar_url} />
           <h2>Username: {follower.login}</h2>
