@@ -58,3 +58,7 @@ body {
   transform: scale(1.5);
   transition: 0.5s
 }
+
+input {
+  width: 20%;
+}

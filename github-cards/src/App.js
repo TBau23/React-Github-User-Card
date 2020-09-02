@@ -64,7 +64,7 @@ render() {
       </div>
       <h2 style={{color: 'white', textDecoration: 'underline'}}>My followers: </h2>
       <SearchBar searchChange={this.searchChange}/>
-      <div className='followers-list'>
+      <div className='followers-list '>
         
       {filteredFollowers.map(follower => (
         <div className='follower' key={follower}>
